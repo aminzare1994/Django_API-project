@@ -13,6 +13,7 @@ def departmentApi(request, id=0):
         departmens =Departments.objects.all()
         departments_serializer = DepartmentSerializer(departmens,many=True)
         return JsonResponse(departments_serializer.data , safe=False )
+    
     elif request.method =='POST' :
         department_data=JSONParser().parse(request)
         department_serializer = DepartmentSerializer(data=department_data)
@@ -30,7 +31,7 @@ def departmentApi(request, id=0):
             return JSONParser("Updated Successfully" ,safe =False)
         return JSONParser("failed to add" ,safe=False)
     
-    elif request.method=="DELETE"
-    department=Departments.objects.get(DepartmentId=id)
-    department.delete()
-    return JsonResponse("Deleted Successfully" , safe False)
+    elif request.method=="DELETE":
+        department=Departments.objects.get(DepartmentId=id)
+        department.delete()
+    return JsonResponse("Deleted Successfully" , safe=False)
