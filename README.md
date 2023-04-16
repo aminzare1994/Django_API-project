@@ -1,1 +1,1 @@
-# Django Angular project
+# Simple Django API project
